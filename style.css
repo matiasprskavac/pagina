@@ -484,7 +484,7 @@ body {
     
     .header .logo img {
         height: 80px;
-        margin-top: 0;
+        margin: 0px;
     }
     
     .sidebar {
@@ -605,7 +605,8 @@ body {
     }
     
     .header .logo img {
-        height: 50px;
+        height: 70px;
+        margin-top: 10px;
     }
     
     .mobile-menu {
