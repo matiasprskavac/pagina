@@ -81,29 +81,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('.header');
-            const logo = document.querySelector('.logo');
-            
-            // Crear botón móvil
+            const navLinks = document.querySelector('.nav-links');
             const mobileMenu = document.createElement('div');
+            
+            // Create mobile container structure
+            const mobileContainer = document.createElement('div');
+            mobileContainer.className = 'mobile-container';
+            
+            // Move logo into mobile container
+            const logo = document.querySelector('.logo');
+            mobileContainer.appendChild(logo.cloneNode(true));
+            
+            // Create mobile menu button
             mobileMenu.className = 'mobile-menu';
             mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileContainer.appendChild(mobileMenu);
             
-            // Insertar después del logo
-            logo.insertAdjacentElement('afterend', mobileMenu);
+            // Insert mobile container at the top of header
+            header.insertBefore(mobileContainer, header.firstChild);
             
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenu.addEventListener('click', function() {
+            // Toggle mobile menu
+            mobileMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
                 navLinks.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
             });
             
-            // Cerrar menú al hacer click en un enlace
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileContainer.contains(e.target) && !navLinks.contains(e.target)) {
                     navLinks.classList.remove('active');
                     mobileMenu.classList.remove('active');
-                });
+                }
+            });
+            
+            // Close menu on resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    navLinks.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
             });
         });
         </script>
