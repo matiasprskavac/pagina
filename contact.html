@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Matias' Restaurant - Delicious meals and unforgettable dining experience.">
+    <title>Matias' Restaurant - CONTACT</title>
+    <link rel="icon" href="img/Logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="img/Logo.jpg" alt="Matias' Restaurant Logo">
+            </div>
+            <nav class="sidebar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="local.html">Locals</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="media">
+                <hr>
+                <ul class="media-links">
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="main-contact">
+            <h1>CONTACT</h1>
+            <div class="form-contact">
+                    <form class="form-content-contact">
+                        <input type="text" placeholder="Name" class="info" required>
+                        <input type="text" placeholder="Phone" class="info" required>
+                        <input type="email" placeholder="Email address" class="info" required>
+                        <button type="submit" class="btn">Contact Us</button>
+                    </form>
+            </div>
+
+            <section class="faq">
+                <div class="faq-container">
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2> 
+                    <details class="faq-item">
+                        <summary class="faq-question">Do you offer vegetarian or vegan options?</summary>
+                        <p class="faq-answer">Yes, we have a wide variety of vegetarian and vegan options on our menu.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Do you accept reservations for large groups?</summary>
+                        <p class="faq-answer">Of course, you can contact us to reserve tables for large groups or special events.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question">Do you offer home delivery service?</summary>
+                        <p class="faq-answer">Yes, we offer home delivery through our partner platforms.</p>
+                    </details>
+                </div>
+            </section>
+            
+            <footer class="footer">
+                <p>&copy; 2025 Matias' Restaurant. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            const logo = document.querySelector('.logo');
+            
+            // Crear botón móvil
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'mobile-menu';
+            mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            
+            // Insertar después del logo
+            logo.insertAdjacentElement('afterend', mobileMenu);
+            
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Cerrar menú al hacer click en un enlace
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        });
+        </script>
+</body>
+
+</html>
